@@ -35,7 +35,9 @@ enviar.addEventListener("click", () => {
   };
 
   // result days, months and years
-  const resultYears = currentYear - year;
+  const dateOfBirth = `${year}-${month}-${day}`;
+  const diferenca = Date.now() - new Date(dateOfBirth).getTime();
+  const resultYears = Math.floor(diferenca / (1000 * 60 * 60 * 24 * 365));
   const resultMonths = resultYears * 12 - month;
   let numberOfLeapYears = 0;
   for (let i = year; i < currentYear; i++) {
